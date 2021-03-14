@@ -26,7 +26,7 @@ stage('Push image') {
       stage("run"){
         steps{
  
-         sh './craete-server.sh'
+         sh './create-server.sh'
         }}
       
     }
