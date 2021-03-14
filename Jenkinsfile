@@ -23,7 +23,7 @@ stage('Push image') {
   docker.withRegistry( '', registryCredential ) {
         dockerImage.push() 
            }}}}
-      stage("build"){
+      stage("run"){
         steps{
  
          sh './craete-server.sh'
