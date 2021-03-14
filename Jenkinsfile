@@ -1,8 +1,9 @@
 pipeline{
   agent any 
       environment {
-        registry = "mhodali/task-3"
+        registry = 'mhodali/server'
         dockerImage = ''
+        registryCredential='server'
     }
     
     stages{
@@ -16,8 +17,17 @@ checkout([$class: 'GitSCM', extensions: [], userRemoteConfigs: [[ url: 'https://
         script {
           dockerImage = docker.build registry
         }}}
-
-
+stage('Push image') {
+           steps{
+        script {
+  docker.withRegistry( '', registryCredential ) {
+        dockerImage.push() 
+           }}}}
+      stage("build"){
+        steps{
+        script {
+          ./craete-server.sh
+        }}}
       
     }
   }
