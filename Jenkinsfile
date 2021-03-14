@@ -25,9 +25,9 @@ stage('Push image') {
            }}}}
       stage("build"){
         steps{
-        script {
-          ./craete-server.sh
-        }}}
+ 
+         sh './craete-server.sh'
+        }}
       
     }
   }
