@@ -1,5 +1,5 @@
 #!/bin/bash
-docker build /home/task3/server/ -t server
+#docker build /home/task3/server/ -t server
 if [ "$(docker ps -a | grep server)" ]; then
   docker stop $(docker ps -a | grep server |awk '{print  $1}')
   docker rm $(docker ps -a | grep server |awk '{print  $1}')
